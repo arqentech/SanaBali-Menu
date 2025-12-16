@@ -6,7 +6,7 @@
   <title>Sana by Numa — Grand Opening</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Cormorant:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-cream: #FCF9F5;
@@ -108,20 +108,21 @@
     }
 
     .logo {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(56px, 10vw, 80px);
-      font-weight: 400;
-      color: var(--gold);
-      letter-spacing: 8px;
-      margin-bottom: 8px;
+      font-family: 'Cormorant', 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(64px, 12vw, 100px);
+      font-weight: 300;
+      color: #C9A96A;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
       line-height: 1;
     }
 
     .byline {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gold-muted);
-      letter-spacing: 6px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #C4A870;
+      letter-spacing: 8px;
       text-transform: uppercase;
       margin-bottom: 50px;
     }
@@ -150,60 +151,26 @@
       vertical-align: super;
     }
 
-    .subtext {
+    .tagline {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 20px;
       color: var(--taupe);
-      margin-bottom: 24px;
-      font-weight: 400;
-    }
-
-    .ticket-wrapper {
-      position: relative;
-      display: inline-block;
       margin-bottom: 40px;
+      font-weight: 400;
+      line-height: 1.8;
     }
 
-    .ticket-btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: transparent;
+    .ticket-text {
+      display: inline-block;
+      background: #3D2E22;
       color: #fff;
-      padding: 20px 55px;
+      padding: 14px 36px;
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 18px;
       font-weight: 500;
       font-style: italic;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s ease, filter 0.2s ease;
-      z-index: 2;
-    }
-
-    .ticket-bg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-3deg);
-      width: 240px;
-      height: 85px;
-      z-index: 1;
-      transition: transform 0.2s ease;
-    }
-
-    .ticket-wrapper:hover .ticket-bg {
-      transform: translate(-50%, -53%) rotate(-3deg) scale(1.03);
-    }
-
-    .ticket-wrapper:hover .ticket-btn {
-      transform: translateY(-2px);
-    }
-
-    .ticket-wrapper:active .ticket-bg {
-      transform: translate(-50%, -50%) rotate(-3deg) scale(1);
+      border-radius: 50px;
+      margin-top: 12px;
     }
 
     .btn-instagram {
@@ -375,19 +342,10 @@
     <h2 class="headline">Grand Opening</h2>
     <p class="date">December 20<sup>th</sup>, 2025</p>
     
-    <p class="subtext">Come speak to our model to</p>
-    
-    <div class="ticket-wrapper">
-      <svg class="ticket-bg" viewBox="0 0 240 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Hand-drawn ticket shape -->
-        <path d="M20 42C20 25 35 12 60 10C90 7 150 8 185 12C215 16 228 28 225 45C222 62 210 75 180 78C145 82 85 80 50 76C25 73 20 60 20 42Z" fill="#3D2E22"/>
-        <!-- Hand-drawn outline -->
-        <path d="M18 40C19 22 38 8 68 6C100 3 155 5 190 10C222 15 235 30 232 50C229 70 212 82 175 85C135 88 75 86 42 82C18 78 16 62 18 40Z" stroke="#F5F0E8" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.9"/>
-      </svg>
-      <a href="#" class="ticket-btn" id="ticketBtn">Get Free Ticket</a>
-    </div>
-    
-    <br>
+    <p class="tagline">
+      Come speak to our model to<br>
+      <span class="ticket-text">Get Free Ticket</span>
+    </p>
     
     <a href="https://www.instagram.com/sanabynuma?igsh=eDh1eTE0M3cxMnh2" target="_blank" rel="noopener" class="btn-instagram">
       Follow us on Instagram
@@ -408,12 +366,5 @@
     </a>
   </main>
 
-  <script>
-    document.getElementById('ticketBtn').addEventListener('click', function(e) {
-      e.preventDefault();
-      // You can replace this with your actual ticket link or form
-      alert('Thank you for your interest! Ticket registration coming soon.');
-    });
-  </script>
 </body>
 </html>
