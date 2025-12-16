@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sana by Numa Bali — Menu Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#FFEDD5;
+      --bg2:#FFF1F2;
+      --accent:#FF6B6B;
+      --muted:#6b7280;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:radial-gradient(1200px 600px at 10% 10%, #FFF7ED 0%, transparent 10%),
+                 linear-gradient(135deg,var(--bg1),var(--bg2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      color:#111827;
+    }
+
+    .card{
+      width:min(880px,96%);
+      background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.85));
+      border-radius:16px;
+      padding:36px;
+      box-shadow:0 8px 30px rgba(15,23,42,0.12);
+      display:grid;
+      gap:18px;
+      align-items:center;
+      justify-items:center;
+      text-align:center;
+    }
+
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .logo{
+      width:64px;
+      height:64px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#FF9A9A);
+      display:grid;
+      place-items:center;
+      color:white;
+      font-weight:700;
+      font-size:20px;
+      box-shadow:0 6px 20px rgba(255,107,107,0.18);
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:0.2px;
+    }
+    h2{
+      margin:0;
+      font-size:18px;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    p.lead{
+      margin:0;
+      color:#374151;
+      max-width:720px;
+      line-height:1.5;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+
+    .btn{
+      --pad:12px 18px;
+      background:var(--accent);
+      color:white;
+      border:0;
+      padding:var(--pad);
+      border-radius:10px;
+      font-weight:600;
+      cursor:pointer;
+      transition:transform .14s ease, box-shadow .14s ease;
+      box-shadow:0 6px 18px rgba(255,107,107,0.18);
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.secondary{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(255,107,107,0.14);
+      box-shadow:none;
+    }
+
+    .status{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    @media (max-width:520px){
+      .brand{gap:10px}
+      h1{font-size:22px}
+      .logo{width:56px;height:56px}
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <div class="brand" aria-hidden="false">
+      <div class="logo" aria-hidden="true">SB</div>
+      <div style="text-align:left">
+        <h1 id="title">Sana <span style="font-weight:500;color:var(--muted);">by Numa Bali</span></h1>
+        <h2>Menu — to be announced soon</h2>
+      </div>
+    </div>
+
+    <p class="lead">We're preparing a thoughtfully curated menu for Sana. Follow along and you'll be the first to know when we announce the full menu and opening details.</p>
+
+    <div class="actions" role="group" aria-label="Actions">
+      <button id="notifyBtn" class="btn">Get notified</button>
+      <button id="learnBtn" class="btn secondary">Contact / Learn more</button>
+    </div>
+
+    <div id="status" class="status" aria-live="polite">Estimated launch: coming soon — stay tuned.</div>
+  </main>
+
+  <script>
+    const notifyBtn = document.getElementById('notifyBtn');
+    const learnBtn = document.getElementById('learnBtn');
+    const status = document.getElementById('status');
+
+    notifyBtn.addEventListener('click', () => {
+      const email = prompt('Enter your email to get notified (optional):');
+      if (email === null) return;
+      if (email.trim()) {
+        try {
+          localStorage.setItem('sana_notify_email', email.trim());
+        } catch (e) {}
+        status.textContent = 'Thanks — you will be notified when the menu is announced.';
+      } else {
+        status.textContent = 'Thanks — we will notify you with updates.';
+      }
+      notifyBtn.disabled = true;
+      notifyBtn.style.opacity = 0.85;
+    });
+
+    learnBtn.addEventListener('click', () => {
+      // Replace with a real contact link or mailto if desired
+      window.location.href = 'mailto:info@numabali.example?subject=About%20Sana';
+    });
+  </script>
+</body>
+</html>
