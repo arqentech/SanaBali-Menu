@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-cream: #F7F3ED;
+      --bg-cream: #FCF9F5;
       --gold: #C9A962;
       --gold-muted: #B5A17A;
       --brown: #5D4E37;
@@ -64,32 +64,22 @@
     .watercolor {
       bottom: 0;
       right: 0;
-      width: 300px;
-      height: 300px;
-      opacity: 0.4;
-    }
-
-    .pancakes {
-      left: 5%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 140px;
-      height: 140px;
+      width: 400px;
+      height: 400px;
+      opacity: 0.6;
     }
 
     .teacup {
-      right: 8%;
-      top: 55%;
-      transform: translateY(-50%);
-      width: 130px;
-      height: 100px;
+      right: 12%;
+      bottom: 20%;
+      width: 150px;
+      height: 120px;
     }
 
-    .teacup-bottom {
-      bottom: 60px;
-      left: 50%;
-      transform: translateX(20%);
-      width: 130px;
+    .teacup-mobile {
+      bottom: 80px;
+      right: 10%;
+      width: 120px;
       height: 100px;
     }
 
@@ -206,11 +196,11 @@
 
     /* Mobile adjustments */
     @media (max-width: 768px) {
-      .pancakes, .teacup {
+      .teacup {
         display: none;
       }
 
-      .teacup-bottom {
+      .teacup-mobile {
         display: block;
       }
 
@@ -223,10 +213,15 @@
         height: 120px;
         right: 20px;
       }
+
+      .watercolor {
+        width: 280px;
+        height: 280px;
+      }
     }
 
     @media (min-width: 769px) {
-      .teacup-bottom {
+      .teacup-mobile {
         display: none;
       }
     }
@@ -241,44 +236,29 @@
     <path d="M180 60C140 60 110 90 110 140" stroke="#E5DED3" stroke-width="1" fill="none"/>
   </svg>
 
-  <!-- Watercolor effect bottom right -->
-  <svg class="decoration watercolor" viewBox="0 0 300 300" fill="none">
-    <ellipse cx="250" cy="250" rx="120" ry="100" fill="url(#watercolor-gradient)"/>
-    <ellipse cx="200" cy="280" rx="80" ry="60" fill="url(#watercolor-gradient2)"/>
+  <!-- Watercolor coffee stain effect bottom right -->
+  <svg class="decoration watercolor" viewBox="0 0 400 400" fill="none">
+    <ellipse cx="320" cy="320" rx="150" ry="130" fill="url(#watercolor-gradient)"/>
+    <ellipse cx="280" cy="350" rx="100" ry="80" fill="url(#watercolor-gradient2)"/>
+    <ellipse cx="350" cy="280" rx="80" ry="70" fill="url(#watercolor-gradient3)"/>
     <defs>
       <radialGradient id="watercolor-gradient" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stop-color="#D4C4B0" stop-opacity="0.4"/>
-        <stop offset="70%" stop-color="#E5DED3" stop-opacity="0.2"/>
-        <stop offset="100%" stop-color="#F7F3ED" stop-opacity="0"/>
+        <stop offset="0%" stop-color="#D4B896" stop-opacity="0.5"/>
+        <stop offset="50%" stop-color="#E2D0BC" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#FCF9F5" stop-opacity="0"/>
       </radialGradient>
       <radialGradient id="watercolor-gradient2" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stop-color="#C9B99A" stop-opacity="0.3"/>
-        <stop offset="100%" stop-color="#F7F3ED" stop-opacity="0"/>
+        <stop offset="0%" stop-color="#C4A882" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#FCF9F5" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="watercolor-gradient3" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0%" stop-color="#BFA07A" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#FCF9F5" stop-opacity="0"/>
       </radialGradient>
     </defs>
   </svg>
 
-  <!-- Pancakes illustration left -->
-  <svg class="decoration pancakes" viewBox="0 0 140 140" fill="none">
-    <g stroke="#D4C4B0" stroke-width="1.2" fill="none">
-      <!-- Plate -->
-      <ellipse cx="70" cy="110" rx="50" ry="12"/>
-      <!-- Pancake stack -->
-      <ellipse cx="70" cy="95" rx="35" ry="8"/>
-      <path d="M35 95C35 95 35 88 70 88C105 88 105 95 105 95"/>
-      <ellipse cx="70" cy="82" rx="32" ry="7"/>
-      <path d="M38 82C38 82 38 76 70 76C102 76 102 82 102 82"/>
-      <ellipse cx="70" cy="70" rx="28" ry="6"/>
-      <path d="M42 70C42 70 42 65 70 65C98 65 98 70 98 70"/>
-      <!-- Butter/topping -->
-      <rect x="62" y="58" width="16" height="8" rx="2"/>
-      <!-- Dripping syrup -->
-      <path d="M55 75C52 78 50 85 52 92" stroke-linecap="round"/>
-      <path d="M85 73C88 76 92 82 90 90" stroke-linecap="round"/>
-    </g>
-  </svg>
-
-  <!-- Teacup illustration right (desktop) -->
+  <!-- Teacup illustration (desktop) -->
   <svg class="decoration teacup" viewBox="0 0 130 100" fill="none">
     <g stroke="#D4C4B0" stroke-width="1.2" fill="none">
       <!-- Saucer -->
@@ -299,8 +279,8 @@
     </g>
   </svg>
 
-  <!-- Teacup illustration bottom (mobile) -->
-  <svg class="decoration teacup-bottom" viewBox="0 0 130 100" fill="none">
+  <!-- Teacup illustration (mobile) -->
+  <svg class="decoration teacup-mobile" viewBox="0 0 130 100" fill="none">
     <g stroke="#D4C4B0" stroke-width="1.2" fill="none">
       <ellipse cx="55" cy="85" rx="45" ry="10"/>
       <path d="M25 45C25 45 20 75 35 80C45 83 65 83 75 80C90 75 85 45 85 45"/>
