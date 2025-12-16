@@ -136,48 +136,79 @@
     }
 
     .subtext {
-      font-size: 16px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
       color: var(--taupe);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       font-weight: 400;
     }
 
-    .btn-primary {
+    .ticket-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 40px;
+    }
+
+    .ticket-btn {
+      position: relative;
       display: inline-block;
       background: var(--brown-dark);
       color: #fff;
-      padding: 16px 40px;
-      border-radius: 50px;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 16px;
+      padding: 20px 55px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
       font-weight: 500;
+      font-style: italic;
       text-decoration: none;
       border: none;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      margin-bottom: 40px;
+      border-radius: 50px;
+      z-index: 1;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
+    /* Ticket notches */
+    .ticket-btn::before,
+    .ticket-btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      background: var(--bg-cream);
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .ticket-btn::before {
+      left: -7px;
+    }
+
+    .ticket-btn::after {
+      right: -7px;
+    }
+
+    .ticket-btn:hover {
+      transform: translateY(-2px) scale(1.02);
       box-shadow: 0 8px 24px rgba(61, 46, 34, 0.25);
     }
 
-    .btn-primary:active {
-      transform: translateY(0);
+    .ticket-btn:active {
+      transform: translateY(0) scale(1);
     }
 
     .btn-instagram {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       background: transparent;
       color: var(--brown);
-      padding: 14px 32px;
+      padding: 18px 40px;
       border-radius: 50px;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 16px;
-      font-weight: 500;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 400;
       text-decoration: none;
       border: 1.5px solid var(--taupe-light);
       cursor: pointer;
@@ -190,8 +221,15 @@
     }
 
     .btn-instagram svg {
-      width: 18px;
-      height: 18px;
+      width: 24px;
+      height: 24px;
+    }
+
+    .instagram-icon {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     /* Mobile adjustments */
@@ -304,16 +342,25 @@
     
     <p class="subtext">Come speak to our model to</p>
     
-    <a href="#" class="btn-primary" id="ticketBtn">Get Free Ticket</a>
+    <a href="#" class="ticket-btn" id="ticketBtn">Get Free Ticket</a>
     
     <br>
     
-    <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-instagram">
+    <a href="https://www.instagram.com/sanabynuma?igsh=eDh1eTE0M3cxMnh2" target="_blank" rel="noopener" class="btn-instagram">
       Follow us on Instagram
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <defs>
+          <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#f09433"/>
+            <stop offset="25%" stop-color="#e6683c"/>
+            <stop offset="50%" stop-color="#dc2743"/>
+            <stop offset="75%" stop-color="#cc2366"/>
+            <stop offset="100%" stop-color="#bc1888"/>
+          </linearGradient>
+        </defs>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#instagram-gradient)"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="url(#instagram-gradient)"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="url(#instagram-gradient)"/>
       </svg>
     </a>
   </main>
