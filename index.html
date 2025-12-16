@@ -69,18 +69,33 @@
       opacity: 0.6;
     }
 
+    .pancakes {
+      left: 8%;
+      top: 45%;
+      transform: translateY(-50%) rotate(-5deg);
+      width: 160px;
+      height: 160px;
+      opacity: 0.7;
+    }
+
     .teacup {
-      right: 12%;
-      bottom: 20%;
-      width: 150px;
-      height: 120px;
+      right: 10%;
+      top: 25%;
+      width: 160px;
+      height: 130px;
+      opacity: 0.6;
     }
 
     .teacup-mobile {
-      bottom: 80px;
-      right: 10%;
+      bottom: 100px;
+      right: 5%;
       width: 120px;
       height: 100px;
+      opacity: 0.6;
+    }
+
+    .pancakes-mobile {
+      display: none;
     }
 
     /* Main content */
@@ -151,8 +166,10 @@
 
     .ticket-btn {
       position: relative;
-      display: inline-block;
-      background: var(--brown-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
       color: #fff;
       padding: 20px 55px;
       font-family: 'Playfair Display', Georgia, serif;
@@ -162,40 +179,31 @@
       text-decoration: none;
       border: none;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border-radius: 50px;
-      z-index: 1;
-    }
-
-    /* Ticket notches */
-    .ticket-btn::before,
-    .ticket-btn::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 14px;
-      height: 14px;
-      background: var(--bg-cream);
-      border-radius: 50%;
+      transition: transform 0.2s ease, filter 0.2s ease;
       z-index: 2;
     }
 
-    .ticket-btn::before {
-      left: -7px;
+    .ticket-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-3deg);
+      width: 240px;
+      height: 85px;
+      z-index: 1;
+      transition: transform 0.2s ease;
     }
 
-    .ticket-btn::after {
-      right: -7px;
+    .ticket-wrapper:hover .ticket-bg {
+      transform: translate(-50%, -53%) rotate(-3deg) scale(1.03);
     }
 
-    .ticket-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 24px rgba(61, 46, 34, 0.25);
+    .ticket-wrapper:hover .ticket-btn {
+      transform: translateY(-2px);
     }
 
-    .ticket-btn:active {
-      transform: translateY(0) scale(1);
+    .ticket-wrapper:active .ticket-bg {
+      transform: translate(-50%, -50%) rotate(-3deg) scale(1);
     }
 
     .btn-instagram {
@@ -234,7 +242,7 @@
 
     /* Mobile adjustments */
     @media (max-width: 768px) {
-      .teacup {
+      .teacup, .pancakes {
         display: none;
       }
 
@@ -270,33 +278,60 @@
   
   <!-- Abstract curve top right -->
   <svg class="decoration curve-top-right" viewBox="0 0 180 180" fill="none">
-    <path d="M180 20C120 20 80 60 80 120C80 150 100 180 140 180" stroke="#E5DED3" stroke-width="1.5" fill="none"/>
-    <path d="M180 60C140 60 110 90 110 140" stroke="#E5DED3" stroke-width="1" fill="none"/>
+    <path d="M180 10C140 10 100 30 80 70C60 110 70 160 100 180" stroke="#E5DED3" stroke-width="1.2" fill="none" opacity="0.7"/>
+    <path d="M180 50C150 50 120 70 110 100C100 130 110 160 130 180" stroke="#E5DED3" stroke-width="0.8" fill="none" opacity="0.5"/>
   </svg>
 
   <!-- Watercolor coffee stain effect bottom right -->
   <svg class="decoration watercolor" viewBox="0 0 400 400" fill="none">
-    <ellipse cx="320" cy="320" rx="150" ry="130" fill="url(#watercolor-gradient)"/>
-    <ellipse cx="280" cy="350" rx="100" ry="80" fill="url(#watercolor-gradient2)"/>
-    <ellipse cx="350" cy="280" rx="80" ry="70" fill="url(#watercolor-gradient3)"/>
+    <ellipse cx="300" cy="300" rx="180" ry="150" fill="url(#watercolor-gradient)"/>
+    <ellipse cx="350" cy="350" rx="120" ry="100" fill="url(#watercolor-gradient2)"/>
+    <ellipse cx="280" cy="360" rx="90" ry="70" fill="url(#watercolor-gradient3)"/>
+    <ellipse cx="360" cy="300" rx="70" ry="60" fill="url(#watercolor-gradient4)"/>
     <defs>
       <radialGradient id="watercolor-gradient" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stop-color="#D4B896" stop-opacity="0.5"/>
-        <stop offset="50%" stop-color="#E2D0BC" stop-opacity="0.3"/>
+        <stop offset="0%" stop-color="#C9A67A" stop-opacity="0.45"/>
+        <stop offset="60%" stop-color="#D9C4A8" stop-opacity="0.25"/>
         <stop offset="100%" stop-color="#FCF9F5" stop-opacity="0"/>
       </radialGradient>
       <radialGradient id="watercolor-gradient2" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stop-color="#C4A882" stop-opacity="0.4"/>
+        <stop offset="0%" stop-color="#B8956A" stop-opacity="0.4"/>
         <stop offset="100%" stop-color="#FCF9F5" stop-opacity="0"/>
       </radialGradient>
       <radialGradient id="watercolor-gradient3" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0%" stop-color="#BFA07A" stop-opacity="0.35"/>
+        <stop offset="0%" stop-color="#A8865A" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#FCF9F5" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="watercolor-gradient4" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0%" stop-color="#D4B088" stop-opacity="0.3"/>
         <stop offset="100%" stop-color="#FCF9F5" stop-opacity="0"/>
       </radialGradient>
     </defs>
   </svg>
 
-  <!-- Teacup illustration (desktop) -->
+  <!-- Pancakes illustration (left side) -->
+  <svg class="decoration pancakes" viewBox="0 0 160 160" fill="none">
+    <g stroke="#D4C4B0" stroke-width="1.3" fill="none">
+      <!-- Plate -->
+      <ellipse cx="80" cy="130" rx="55" ry="14"/>
+      <!-- Pancake stack -->
+      <ellipse cx="80" cy="112" rx="42" ry="10"/>
+      <path d="M38 112C38 112 38 102 80 102C122 102 122 112 122 112"/>
+      <ellipse cx="80" cy="96" rx="38" ry="9"/>
+      <path d="M42 96C42 96 42 87 80 87C118 87 118 96 118 96"/>
+      <ellipse cx="80" cy="82" rx="34" ry="8"/>
+      <path d="M46 82C46 82 46 74 80 74C114 74 114 82 114 82"/>
+      <ellipse cx="80" cy="68" rx="30" ry="7"/>
+      <!-- Butter pat on top -->
+      <rect x="70" y="56" width="20" height="10" rx="3"/>
+      <!-- Syrup drips -->
+      <path d="M58 78C54 82 52 92 55 105" stroke-linecap="round"/>
+      <path d="M102 76C106 80 110 88 107 100" stroke-linecap="round"/>
+      <path d="M68 72C65 76 62 84 64 95" stroke-linecap="round"/>
+    </g>
+  </svg>
+
+  <!-- Teacup illustration (upper right) -->
   <svg class="decoration teacup" viewBox="0 0 130 100" fill="none">
     <g stroke="#D4C4B0" stroke-width="1.2" fill="none">
       <!-- Saucer -->
@@ -342,7 +377,15 @@
     
     <p class="subtext">Come speak to our model to</p>
     
-    <a href="#" class="ticket-btn" id="ticketBtn">Get Free Ticket</a>
+    <div class="ticket-wrapper">
+      <svg class="ticket-bg" viewBox="0 0 240 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Hand-drawn ticket shape -->
+        <path d="M20 42C20 25 35 12 60 10C90 7 150 8 185 12C215 16 228 28 225 45C222 62 210 75 180 78C145 82 85 80 50 76C25 73 20 60 20 42Z" fill="#3D2E22"/>
+        <!-- Hand-drawn outline -->
+        <path d="M18 40C19 22 38 8 68 6C100 3 155 5 190 10C222 15 235 30 232 50C229 70 212 82 175 85C135 88 75 86 42 82C18 78 16 62 18 40Z" stroke="#F5F0E8" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.9"/>
+      </svg>
+      <a href="#" class="ticket-btn" id="ticketBtn">Get Free Ticket</a>
+    </div>
     
     <br>
     
