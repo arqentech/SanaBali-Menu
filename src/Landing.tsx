@@ -33,7 +33,7 @@ export default function Landing() {
       <img
         src="/pancakes.svg"
         alt="pancakes"
-        className="absolute pointer-events-none left-[-20px] sm:left-4 md:left-8 lg:left-12 top-[68%] sm:top-1/2 -translate-y-1/2"
+        className="absolute pointer-events-none left-2 sm:left-4 md:left-8 lg:left-12 top-[68%] sm:top-1/2 -translate-y-1/2"
         style={{
           width: "clamp(100px, 12vw, 143.85px)",
           height: "clamp(85px, 10vw, 122.89px)",
@@ -109,7 +109,7 @@ export default function Landing() {
         <img
           src="/getfreeticket.svg"
           alt="Get Free Ticket"
-          className="cursor-pointer w-[150px] h-auto sm:w-[168px] md:w-[185px] lg:w-[198px]"
+          className="w-[150px] h-auto sm:w-[168px] md:w-[185px] lg:w-[198px]"
           style={{ marginBottom: "64px" }}
         />
 
@@ -123,6 +123,7 @@ export default function Landing() {
               leading-none tracking-[0.005em]
               hover:bg-[#f6ede4]
               transition-colors duration-200
+              cursor-pointer
             "
             style={{
               fontFamily: "'Inter', system-ui, sans-serif",
