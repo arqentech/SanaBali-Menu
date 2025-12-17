@@ -6,7 +6,7 @@
   <title>Sana by Numa — Grand Opening</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Cormorant:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Cormorant:wght@300;400;500&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-cream: #FCF9F5;
@@ -128,22 +128,37 @@
     }
 
     .headline {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(36px, 7vw, 52px);
-      font-weight: 500;
-      font-style: italic;
-      color: var(--brown);
+      font-family: 'RocaOne-Bold', 'Playfair Display', Georgia, serif;
+      font-size: 80px;
+      font-weight: 400;
+      font-style: normal;
+      color: #7F6654;
       margin-bottom: 16px;
-      line-height: 1.1;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    @media (max-width: 768px) {
+      .headline {
+        font-family: 'RocaOne-Bold', 'Playfair Display', Georgia, serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 48px;
+        color: #7F6654;
+        letter-spacing: 0;
+        line-height: 1;
+      }
     }
 
     .date {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(22px, 4vw, 28px);
-      font-style: italic;
+      font-family: 'Belleza', Georgia, serif;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 400;
       color: var(--taupe);
       margin-bottom: 32px;
-      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0;
     }
 
     .date sup {
@@ -151,13 +166,27 @@
       vertical-align: super;
     }
 
+    @media (max-width: 768px) {
+      .date {
+        font-size: 32px;
+      }
+    }
+
     .tagline {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'RocaOne-Rg', 'Playfair Display', Georgia, serif;
       font-size: 20px;
-      color: var(--taupe);
-      margin-bottom: 40px;
       font-weight: 400;
-      line-height: 1.8;
+      font-style: normal;
+      color: #7F6654;
+      margin-bottom: 40px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    @media (max-width: 768px) {
+      .tagline {
+        font-size: 16px;
+      }
     }
 
     .ticket-text {
@@ -176,35 +205,37 @@
     .btn-instagram {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      background: transparent;
-      color: var(--brown);
-      padding: 18px 40px;
-      border-radius: 50px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 18px;
-      font-weight: 400;
-      text-decoration: none;
-      border: 1.5px solid var(--taupe-light);
+      justify-content: center;
+      gap: 8px;
+      width: 336px;
+      height: 64px;
+      padding: 0 40px;
+      background: #F5EFE7;
+      border: 1px solid #DABFA1;
+      border-radius: 16px;
       cursor: pointer;
       transition: all 0.2s ease;
+      text-decoration: none;
     }
 
     .btn-instagram:hover {
-      border-color: var(--brown);
-      background: rgba(93, 78, 55, 0.05);
+      background: #F0E8DC;
+      border-color: #C9A87A;
+    }
+
+    .btn-instagram-text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: 0.005em;
+      color: #99774F;
+      text-align: center;
     }
 
     .btn-instagram svg {
       width: 24px;
       height: 24px;
-    }
-
-    .instagram-icon {
-      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
     /* Mobile adjustments */
@@ -348,7 +379,7 @@
     </p>
     
     <a href="https://www.instagram.com/sanabynuma?igsh=eDh1eTE0M3cxMnh2" target="_blank" rel="noopener" class="btn-instagram">
-      Follow us on Instagram
+      <span class="btn-instagram-text">Follow us on Instagram</span>
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <defs>
           <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
