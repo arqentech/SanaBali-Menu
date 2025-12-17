@@ -159,31 +159,17 @@
       line-height: 1.4;
     }
 
-    .ticket {
-      display: inline-block;
-      background: #4A3728;
-      color: #fff;
-      padding: 16px 40px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 16px;
-      font-weight: 500;
-      font-style: italic;
-      border-radius: 40px;
+    .ticket-image {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
       margin-bottom: 32px;
-      position: relative;
     }
 
-    /* Hand-drawn outline effect */
-    .ticket::before {
-      content: '';
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
-      border: 1.5px solid rgba(255, 255, 255, 0.4);
-      border-radius: 45px;
-      transform: rotate(-1deg);
+    @media (max-width: 768px) {
+      .ticket-image {
+        max-width: 170px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -442,7 +428,7 @@
     <p class="tagline">Come speak to our model to</p>
     
     <!-- Ticket -->
-    <span class="ticket">Get Free Ticket</span>
+    <img src="assets/images/SANA Cafe Ticket (2) 2.png" alt="Get Free Ticket" class="ticket-image">
     
     <a href="https://www.instagram.com/sanabynuma?igsh=eDh1eTE0M3cxMnh2" target="_blank" rel="noopener" class="btn-instagram">
       <span class="btn-instagram-text">Follow us on Instagram</span>
