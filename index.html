@@ -14,14 +14,73 @@
       height: 100%;
       overflow: hidden;
     }
+    #pdf-container {
+      width: 100%;
+      height: 100vh;
+      overflow: auto;
+      background: #525252;
+    }
     iframe {
       width: 100%;
       height: 100vh;
       border: none;
     }
+    canvas {
+      display: block;
+      margin: 0 auto 20px;
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
-  <iframe src="menu.pdf" type="application/pdf"></iframe>
+  <!-- Desktop: Use iframe -->
+  <iframe id="desktop-pdf" src="menu.pdf" type="application/pdf"></iframe>
+  
+  <!-- Mobile: Use PDF.js -->
+  <div id="pdf-container" style="display: none;"></div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    // Detect mobile devices
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // Hide iframe, show PDF.js container
+      document.getElementById('desktop-pdf').style.display = 'none';
+      document.getElementById('pdf-container').style.display = 'block';
+      
+      // Load PDF with PDF.js
+      pdfjsLib.getDocument('menu.pdf').promise.then(function(pdf) {
+        // Render all pages
+        for (let i = 1; i <= pdf.numPages; i++) {
+          pdf.getPage(i).then(function(page) {
+            const viewport = page.getViewport({ scale: 1.5 });
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            canvas.style.marginBottom = '20px';
+            canvas.style.display = 'block';
+            canvas.style.margin = '0 auto';
+            
+            const container = document.getElementById('pdf-container');
+            container.appendChild(canvas);
+            
+            page.render({
+              canvasContext: context,
+              viewport: viewport
+            });
+          });
+        }
+      }).catch(function(error) {
+        console.error('Error loading PDF:', error);
+        document.getElementById('pdf-container').innerHTML = '<p style="color: white; text-align: center; padding: 20px;">Error loading PDF. Please try again.</p>';
+      });
+    } else {
+      // Desktop: keep iframe visible
+      document.getElementById('pdf-container').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
